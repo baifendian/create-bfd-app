@@ -34,6 +34,8 @@ function run() {
   ncp(path.join(__dirname, 'template'), dist)
   success(`Created ${dist}.`)
   
+  console.log('Installing packages.... This might take a couple minutes.')
+
   spawn('npm', ['install'], {
     stdio: 'inherit',
     cwd: dist
