@@ -1,0 +1,33 @@
+.header {
+  background-color: #2196f3;
+  padding: 10px 20px;
+  color: #fff;
+  a {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.header__logo {
+  display: block;
+  font-size: 18px;
+  padding-left: 40px;
+  background: url('~public/logo.png') left center no-repeat;
+  background-size: 30px 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 5px 20px 5px 0;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    background: url('~public/logo@2x.png') left center no-repeat;
+    background-size: 30px 30px;
+  }
+}
+
+.header__right {
+  line-height: 20px;
+  padding: 10px 0;
+}
