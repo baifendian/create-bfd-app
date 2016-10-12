@@ -10,8 +10,8 @@
 </a>
 
 
-- [工作流程](WORKFLOW.md)
-- [文档说明](DOCS.md)
-- [更新日志](CHANGELOG.md)
+- [工作流程](http://ui.baifendian.com/scaffolding/workflow)
+- [文档说明](http://ui.baifendian.com/scaffolding/docs)
+- [更新日志](http://ui.baifendian.com/scaffolding/changelog)
 
 ![create-bfd-app](https://cdn.rawgit.com/baifendian/create-bfd-app/master/screenshot.png)
