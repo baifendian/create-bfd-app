@@ -8,6 +8,10 @@
   <img src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/octocat.png" width="20" height="20">
 </a>
 
+```sh
+$ npm install -g create-bfd-app
+$ create-bfd-app my-app
+```
 
 - [工作流程](http://ui.baifendian.com/scaffolding/workflow)
 - [文档说明](http://ui.baifendian.com/scaffolding/docs)
