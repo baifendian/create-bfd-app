@@ -1,6 +1,4 @@
 {
-  "name": "my-app",
-  "version": "0.0.1",
   "scripts": {
     "lint": "eslint src || true",
     "build": "cross-env NODE_ENV=production webpack -p --progress --colors",
