@@ -1,5 +1,5 @@
 /**
- * 自动换肤，改变 bfd-bootstrap、bfd-ui、App.less 的色值
+ * 自动换肤，改变 bfd-ui、项目本地模块的色值
  * node bin/theme.js -#42a5f5:#ff7043 -#2196f3:#ff5722 -#1e88e5:#f4511e
  * 自定义颜色替换规则，语法：-原颜色:目标颜色，支持多个，空格隔开
  * 
@@ -21,8 +21,6 @@ option.forEach(function(item) {
 })
 
 var sheets = []
-sheets.push(path.join(__dirname, '../functions/App/index.less'))
-sheets.push(path.join(__dirname, '../functions/Login/index.less'))
 
 function pushSheet(dir) {
   fs.readdirSync(dir).forEach(function(item) {
@@ -30,13 +28,17 @@ function pushSheet(dir) {
     if (fs.statSync(_dir).isDirectory()) {
       pushSheet(_dir)
     } else {
-      if (path.extname(item) === '.less') {
+      var ext = path.extname(item)
+      if (ext === '.less' || ext === '.css') {
         sheets.push(_dir)
       }
     }
   })
 }
+
 pushSheet(path.join(__dirname, '../node_modules/bfd-ui/lib'))
+pushSheet(path.join(__dirname, '../functions'))
+pushSheet(path.join(__dirname, '../public'))
 
 var reg = new RegExp(sourceColors.join('|'), 'gi')
 sheets.forEach(function(sheet) {
