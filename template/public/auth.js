@@ -2,8 +2,6 @@
  * 当前用户状态
  */
 
-import xhr from 'bfd/xhr'
-
 const auth = {
 
   loggedIn() {

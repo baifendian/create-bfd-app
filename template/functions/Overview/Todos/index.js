@@ -7,7 +7,7 @@ import './index.less'
 
 class Todos extends Component {
 
-  constructor(props) {
+  constructor() {
     super()
     this.update = update.bind(this)
     this.state = {

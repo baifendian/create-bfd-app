@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import update from 'react-update'
 import { Form, FormItem, FormSubmit, FormInput } from 'bfd/Form'
 import { Checkbox } from 'bfd/Checkbox'
-import Button from 'bfd/Button'
 import auth from 'public/auth'
 import './index.less'
 
@@ -27,7 +26,7 @@ class Login extends Component {
   handleSuccess(user) {
     auth.register(user)
     const passState = this.props.location.state
-    let referrer = passState && passState.referrer
+    const referrer = passState && passState.referrer
     this.props.history.push(referrer || '/')
   }
 
@@ -36,7 +35,7 @@ class Login extends Component {
   }
 
   render() {
-    const { isLogin, user } = this.state
+    const { user } = this.state
     return (
       <div className="login">
         <Form 

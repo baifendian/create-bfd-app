@@ -20,8 +20,6 @@ $ npm install -g create-bfd-app
 ### 生成项目
 
 ```sh
-$ cd workspace
-
 $ create-bfd-app my-app
 ```
 
@@ -29,32 +27,28 @@ $ create-bfd-app my-app
 ## 开发
 
 ```sh
-cd my-app
+$ cd my-app
 
-npm start
+$ npm start
 ```
 
-到此为止，前端环境配置完成，[http://localhost:9000](http://localhost:9000)
+到此为止，前端环境配置完成，[http://127.0.0.1:9000](http://127.0.0.1:9000)
 
 
 ## 部署测试/上线
 
 ### 代码规范检查
 
-代码规范参考 [airbnb](https://github.com/airbnb/javascript)
+[代码规范](https://github.com/baifendian/fe-style-guide)
 
 ```sh
-cd myapp
-
-npm run lint
+$ npm run lint
 ```
 
 ### 构建线上环境代码
 
 ```sh
-cd myapp
-
-npm run build
+$ npm run build
 ```
 
 完成后，myapp 下的 static 目录及 index.html 发送给后台即可，如 Java web 项目下的 webapp 目录

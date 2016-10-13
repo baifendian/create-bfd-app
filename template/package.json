@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "eslint src || true",
+    "lint": "eslint functions public || true",
     "build": "cross-env NODE_ENV=production webpack -p --progress --colors",
     "start": "node-dev server.js",
     "theme": "node bin/theme.js -#42a5f5:#ff7043 -#2196f3:#ff5722 -#1e88e5:#f4511e"
@@ -10,6 +10,7 @@
     "bfd-ui": "^1.0.0",
     "fastclick": "^1.0.6",
     "normalize.css": "^4.2.0",
+    "pace": "github:hubspot/pace",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^1.0.2",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.3.17",
+    "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
@@ -27,7 +29,6 @@
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^4.2.3",
     "express": "^4.13.3",
-    "install": "^0.8.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "node-dev": "^3.1.0",

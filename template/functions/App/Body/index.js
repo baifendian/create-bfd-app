@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav, IndexNavItem, NavItem } from 'bfd/Nav'
+import { Nav, NavItem } from 'bfd/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import './index.less'
 
