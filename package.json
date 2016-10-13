@@ -1,6 +1,6 @@
 {
   "name": "create-bfd-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "create bfd app",
   "main": "index.js",
   "scripts": {
