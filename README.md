@@ -17,4 +17,8 @@ $ create-bfd-app my-app
 - [文档说明](http://ui.baifendian.com/scaffolding/docs)
 - [更新日志](http://ui.baifendian.com/scaffolding/changelog)
 
-![create-bfd-app](https://cdn.rawgit.com/baifendian/create-bfd-app/master/screenshot.png)
+<img 
+  style="max-width: 100%;"
+  src="https://cdn.rawgit.com/baifendian/create-bfd-app/master/screenshot.png" 
+  alt="create-bfd-app"
+/>
