@@ -36,7 +36,7 @@ bfd-ui 及脚手架主色调替换，支持多个颜色替换，语法规则：-
 
 ### `npm run lint`
 
-代码规范检查，未测试通过禁止上线。代码规范参考 [airbnb](https://github.com/airbnb/javascript)
+代码规范检查，未测试通过禁止上线。[代码规范](https://github.com/baifendian/fe-style-guide)
 
 
 ## 重要说明
