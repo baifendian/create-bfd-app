@@ -43,7 +43,11 @@ bfd-ui 及脚手架主色调替换，支持多个颜色替换，语法规则：-
 
 ### 登录状态控制
 
-![create-bfd-app auth](https://cdn.rawgit.com/baifendian/create-bfd-app/master/auth.png)
+<img 
+  style="max-width: 100%;"
+  src="https://cdn.rawgit.com/baifendian/create-bfd-app/master/auth.png" 
+  alt="create-bfd-app auth"
+/>
 
 用户登录状态的校验是判断 localStorage 和 cookie 是否存在，默认 user 字段，可自行修改（`public/auth.js`），所以登录这块告诉后端同事登录成功后设置一个 cookie 标识即可
 
