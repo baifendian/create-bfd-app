@@ -17,7 +17,7 @@ class Layout extends Component {
   }
 
   close() {
-    this.props.onToggle(false)
+    this.props.open && this.props.onToggle(false)
   }
 
   toggle(e) {
@@ -57,9 +57,9 @@ const LayoutContent = (props, { layout }) => {
   const { children } = props
   return (
     <Col className="layout__content" onClick={() => layout.close()}>
-      <Button 
-        icon="bars" 
-        className="layout__toggle" 
+      <Button
+        icon="bars"
+        className="layout__toggle"
         onClick={e => layout.toggle(e)}
       />
       {children}
