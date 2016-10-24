@@ -1,7 +1,7 @@
 import './index.less'
 import React, { Component } from 'react'
 import fastclick from 'fastclick'
-import pace from 'pace'
+import pace from 'pace-progress'
 import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
@@ -12,7 +12,7 @@ pace.start()
 fastclick.attach(document.body)
 
 class App extends Component {
-  
+
   render() {
 
     const { children, location, history, routes } = this.props

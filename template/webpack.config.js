@@ -42,6 +42,9 @@ var config = {
         plugins: ['transform-runtime']
       }
     }, {
+      test: require.resolve("pace-progress"),
+      loader: "imports?define=>false"
+    }, {
       test: /\.css$/,
       loader: 'style!css'
     }, {
