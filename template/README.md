@@ -1,11 +1,31 @@
-# Project Name
+# <Project Name>
 
-本应用基于 [百分点前端脚手架](http://ui.baifendian.com/scaffolding) 构建
+独立的前端代码包，接通数据源后（`config.js`）即可本地运行，放置服务器后端环境下即可部署
+
+## 安装
 
 ```sh
-git clone 
+$ git clone </path/to/repository>
 
-npm install
+$ cd repository
+
+$ npm install
 ```
 
-更多信息请参考 [http://ui.baifendian.com/scaffolding/workflow](http://ui.baifendian.com/scaffolding/workflow)
+## 本地开发环境运行
+
+```sh
+$ npm start
+```
+
+## 打包发布
+
+```sh
+$ npm run build
+```
+
+更多说明请参考 [http://ui.baifendian.com/scaffolding](http://ui.baifendian.com/scaffolding)
+
+---
+
+Powered by [百分点前端脚手架](http://ui.baifendian.com/scaffolding)
