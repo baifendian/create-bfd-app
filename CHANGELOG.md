@@ -4,6 +4,7 @@
 
 `2016-11-01`
 
+- 修复 `npm run theme` 失效的问题
 - 修复 .gitignore 未生成的问题
 - 优化 Layout 组件渲染
 - 修复 pace 模块依赖丢失问题
