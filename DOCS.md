@@ -45,7 +45,7 @@ bfd-ui 及脚手架主色调替换，支持多个颜色替换，语法规则：-
 
 <img 
   style="max-width: 100%;"
-  src="https://cdn.rawgit.com/baifendian/create-bfd-app/master/auth.png" 
+  src="https://cdn.rawgit.com/baifendian/create-bfd-app/master/auth.svg" 
   alt="create-bfd-app auth"
 />
 

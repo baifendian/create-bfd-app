@@ -25,7 +25,7 @@ export default render((
       <Route path="overview">
         <Route path="todos" getComponent={(location, cb) => {
           require.ensure([], require => {
-          cb(null, require('./functions/Overview/Todos').default)
+            cb(null, require('./functions/Overview/Todos').default)
           })
         }} />
       </Route>
