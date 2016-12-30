@@ -1,10 +1,7 @@
-# create-bfd-app
+# [create-bfd-app](https://github.com/baifendian/create-bfd-app)
 
 [![npm package](https://img.shields.io/npm/v/create-bfd-app.svg)](https://www.npmjs.org/package/create-bfd-app)
 [![NPM downloads](http://img.shields.io/npm/dm/create-bfd-app.svg)](https://npmjs.org/package/create-bfd-app)
-<a href="https://github.com/baifendian/create-bfd-app" target="_blank">
-  <img src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/octocat.png" width="20" height="20">
-</a>
 
 百分点前端脚手架 [ui.baifendian.com/scaffolding](http://ui.baifendian.com/scaffolding)
 
