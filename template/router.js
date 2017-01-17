@@ -4,23 +4,42 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRedirect } from 'react-router'
-import { createHistory } from 'history'
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router'
+import process from 'nprogress'
 import auth from 'public/auth'
 import App from './functions/App'
 
 // 用户登录验证
-function requireAuth(nextState, replaceState) {
+function requireAuth(nextState, replace) {
   const path = nextState.location.pathname
   const loginPath = '/login'
-  if (!auth.loggedIn()) {
-    path !== loginPath && replaceState({referrer: path}, '/login')
+  if (!auth.isLoginIn()) {
+    path !== loginPath && replace({
+      pathname: '/login',
+      state: {
+        referrer: path
+      }
+    })
   }
 }
 
 export default render((
-  <Router history={createHistory()} onUpdate={() => window.scrollTo(0, 0)}>
-    <Route path="/" component={App} onEnter={requireAuth}>
+  <Router
+    history={browserHistory}
+    onUpdate={() => {
+      process.done()
+      window.scrollTo(0, 0)
+    }}
+  >
+    <Route
+      path="/"
+      onEnter={(...args) => {
+        requireAuth(...args)
+        process.start()
+      }}
+      onChange={() => process.start()}
+      component={App}
+     >
       <IndexRedirect to="/overview/todos" />
       <Route path="overview">
         <Route path="todos" getComponent={(location, cb) => {

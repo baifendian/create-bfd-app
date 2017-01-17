@@ -1,15 +1,8 @@
 import './index.less'
 import React, { Component } from 'react'
-import fastclick from 'fastclick'
-import pace from 'pace-progress'
 import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
-
-pace.start()
-
-// 处理移动端点击 300ms 延迟问题
-fastclick.attach(document.body)
 
 class App extends Component {
 

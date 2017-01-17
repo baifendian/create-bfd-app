@@ -41,31 +41,52 @@ body {
 
 .wrapper {
   animation: wrapper--fade .25s cubic-bezier(.455,.03,.515,.955);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 @keyframes wrapper--fade {
   0% {
-    opacity: 0; 
+    opacity: 0;
   }
   100% {
-    opacity: 1; 
-  } 
-}
-
-.pace {
-  pointer-events: none;
-  user-select: none;
-  .pace-progress {
-    background: #ececec;
-    position: fixed;
-    z-index: 2000;
-    top: 0;
-    right: 100%;
-    width: 100%;
-    height: 2px;
+    opacity: 1;
   }
 }
 
-.pace-inactive {
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #fff;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
   display: none;
 }

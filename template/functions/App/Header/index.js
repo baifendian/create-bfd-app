@@ -10,10 +10,10 @@ class Header extends Component {
   handleLogout(e) {
     e.preventDefault()
     xhr({
-      url: 'auth/logout',
+      url: 'user/logout',
       success: () => {
         auth.destroy()
-        this.props.history.pushState({
+        this.context.router.push({
           referrer: this.props.location.pathname
         }, '/login')
       }
@@ -35,6 +35,10 @@ class Header extends Component {
       </Row>
     )
   }
+}
+
+Header.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 Header.propTypes = {

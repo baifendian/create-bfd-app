@@ -1,9 +1,10 @@
 .login {
+  flex: 1;
   background-color: #333;
   background: #333 url(./bg.jpg) no-repeat;
   padding-top: 150px;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 100vh\9;
   .bfd-form {
     position: relative;
     margin: 0 auto;
@@ -40,6 +41,22 @@
     background: url('~public/logo@2x.png') left center no-repeat;
     background-size: 30px 30px;
   }
+}
+
+.login__icon-item {
+  position: relative;
+  .bfd-input {
+    padding-left: 24px;
+  }
+}
+
+.login__icon-item-icon {
+  position: absolute;
+  width: 10px;
+  text-align: center;
+  left: 9px;
+  top: 9px;
+  z-index: 1;
 }
 
 .login + .footer {

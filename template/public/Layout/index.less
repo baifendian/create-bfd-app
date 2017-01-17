@@ -2,7 +2,7 @@
 
 .layout {
   position: relative;
-  min-height: 100%;
+  width: 100%;
   &:before {
     content: '';
     position: absolute;
@@ -37,7 +37,6 @@
   padding: 20px;
   position: relative;
   width: calc(~"100%" - @sidebar-width);
-  min-height: 100%;
   @media (max-width: 768px) {
     width: 100%;
     padding-top: 70px;
@@ -49,11 +48,11 @@
 
 @keyframes layout-content-fade {
   0% {
-    opacity: 0; 
+    opacity: 0;
   }
   100% {
-    opacity: 1; 
-  } 
+    opacity: 1;
+  }
 }
 
 .layout__toggle {

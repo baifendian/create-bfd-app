@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { PropTypes, Component } from 'react'
 import update from 'react-update'
 import { Form, FormItem, FormSubmit, FormInput } from 'bfd/Form'
-import { Checkbox } from 'bfd/Checkbox'
+import Icon from 'bfd/Icon'
 import auth from 'public/auth'
 import './index.less'
 
@@ -27,41 +27,40 @@ class Login extends Component {
     auth.register(user)
     const passState = this.props.location.state
     const referrer = passState && passState.referrer
-    this.props.history.push(referrer || '/')
-  }
-
-  handleRemember(e) {
-    this.update('set', 'user.remember', e.target.checked)
+    this.context.router.push(referrer || '/')
   }
 
   render() {
     const { user } = this.state
     return (
       <div className="login">
-        <Form 
-          action="auth"
-          onSuccess={::this.handleSuccess} 
-          defaultData={user} 
-          labelWidth={0} 
+        <Form
+          action="user/login"
+          onSuccess={::this.handleSuccess}
+          defaultData={user}
+          labelWidth={0}
           rules={this.rules}
         >
           <div className="login__logo">
             SYSTEM NAME
           </div>
-          <FormItem name="username">
+          <FormItem name="username" className="login__icon-item">
+            <Icon type="user" className="login__icon-item-icon" />
             <FormInput placeholder="用户名" />
           </FormItem>
-          <FormItem name="password">
+          <FormItem name="password" className="login__icon-item">
+            <Icon type="lock" className="login__icon-item-icon" />
             <FormInput placeholder="密码" type="password" />
-          </FormItem>
-          <FormItem name="remember">
-            <Checkbox onChange={::this.handleRemember}>下次自动登录</Checkbox>
           </FormItem>
           <FormSubmit>登录</FormSubmit>
         </Form>
       </div>
     )
   }
+}
+
+Login.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default Login

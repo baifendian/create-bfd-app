@@ -9,7 +9,7 @@ import router from './router'
 
 // AJAX 全局配置
 if (__DEV__) {
-  xhr.baseUrl = 'http://127.0.0.1:3000/api/'
+  xhr.baseUrl = 'http://10.11.6.170:8080/api/'
 } else {
   xhr.baseUrl = '/api/'
 }
@@ -25,9 +25,7 @@ xhr.success = (res, option) => {
       break
     case 401:
       auth.destroy()
-      router.history.replaceState({
-        referrer: router.state.location.pathname
-      }, '/login')
+      router.router.replace('/login')
       break
     default:
       message.danger(res.message || 'unknown error')
