@@ -5,7 +5,7 @@
 import xhr from 'bfd/xhr'
 import message from 'bfd/message'
 import auth from 'public/auth'
-import router from './router'
+import { browserHistory } from 'react-router'
 
 // AJAX 全局配置
 if (__DEV__) {
@@ -25,7 +25,7 @@ xhr.success = (res, option) => {
       break
     case 401:
       auth.destroy()
-      router.router.replace('/login')
+      browserHistory.push('/login')
       break
     default:
       message.danger(res.message || 'unknown error')

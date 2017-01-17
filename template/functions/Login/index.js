@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import update from 'react-update'
+import { browserHistory } from 'react-router'
 import { Form, FormItem, FormSubmit, FormInput } from 'bfd/Form'
 import Icon from 'bfd/Icon'
 import auth from 'public/auth'
@@ -27,7 +28,7 @@ class Login extends Component {
     auth.register(user)
     const passState = this.props.location.state
     const referrer = passState && passState.referrer
-    this.context.router.push(referrer || '/')
+    browserHistory.push(referrer || '/')
   }
 
   render() {
@@ -57,10 +58,6 @@ class Login extends Component {
       </div>
     )
   }
-}
-
-Login.contextTypes = {
-  router: PropTypes.object.isRequired
 }
 
 export default Login

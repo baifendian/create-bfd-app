@@ -1,7 +1,7 @@
 import './index.less'
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import { Row, Col } from 'bfd/Layout'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import xhr from 'bfd/xhr'
 import auth from 'public/auth'
 
@@ -13,9 +13,12 @@ class Header extends Component {
       url: 'user/logout',
       success: () => {
         auth.destroy()
-        this.context.router.push({
-          referrer: this.props.location.pathname
-        }, '/login')
+        browserHistory.push({
+          pathname: '/login',
+          state: {
+            referrer: this.props.location.pathname
+          }
+        })
       }
     })
   }
@@ -35,10 +38,6 @@ class Header extends Component {
       </Row>
     )
   }
-}
-
-Header.contextTypes = {
-  router: PropTypes.object.isRequired
 }
 
 Header.propTypes = {

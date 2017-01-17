@@ -24,7 +24,6 @@ const auth = {
   },
 
   destroy() {
-    auth.user = null
     localStorage.removeItem(auth.USER_KEY)
   }
 }
