@@ -5,7 +5,7 @@
 ```
 my-app
 |-- bin/               一些工程化辅助脚本
-|-- data/              本地模拟数据，baseUrl 统一配置成 '/data'，具体 URL 定义为 xxx.json
+|-- data/              本地模拟数据，baseUrl 统一配置成 '/data'，具体 URL 定义为 xxx.json，也可以使用mockjs虚拟ajax请求
 |-- functions/         各个页面功能
 |-- public/            业务逻辑中可复用的资源（代码、图片等等）
 |-- .eslintrc          eslint 代码规范配置
