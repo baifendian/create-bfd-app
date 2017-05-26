@@ -7,16 +7,10 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-var fs = require('fs')
+var fs = require('fs-extra')
 var path = require('path')
 var webpack = require('webpack')
-
-var plugins = require('./include/plugins')
-var rules = require('./include/rules')
-var alias = require('./include/alias')
-
-var STATIC_ROOT = 'static'
-var STATIC_PATH = path.resolve(STATIC_ROOT)
+var readline = require('readline')
 
 var variables = {
   __DEV__ : false,
@@ -26,15 +20,27 @@ var variables = {
   }
 }
 
+var STATIC_ROOT = 'static'
+
+var settings = {
+  target: './',
+  static: STATIC_ROOT,
+  dev: variables.__DEV__
+}
+
+var plugins = require('./include/plugins')
+var alias = require('./include/alias')
+var rules = require('./include/rules')(settings)
+
 var config = {
   entry: {
 		app: './index.js'
   },
   output: {
-    path: STATIC_PATH,
-    filename: '[name].[hash].js',
-    chunkFilename: '[id].[hash].js',
-    publicPath: '/' + STATIC_ROOT + '/'
+    path: path.resolve('./'),
+    filename: STATIC_ROOT + '/[name].[hash].js',
+    chunkFilename: STATIC_ROOT + '/[id].[hash].js',
+    publicPath: '/'
   },
   module: {
     rules: rules
@@ -56,12 +62,37 @@ var config = {
       }
     }),
 
-    new plugins.WriteIndex({
-      target: '.',
-      root: STATIC_ROOT,
-      dev: variables.__DEV__
-    })
+    new plugins.WriteIndex(settings)
   ]
 }
 
-module.exports = config;
+module.exports = new Promise(function(resolve) {
+  var output = (process.argv.slice(2).find(function(arg) {
+    return !arg.indexOf('--output-path=')
+  }) || '').split('=')[1] || ''
+
+  if (!output || output == './') {
+    return resolve(config)
+  }
+
+  settings.target = output
+
+  if (!fs.existsSync(output)) {
+    return resolve(config)
+  }
+
+  var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+
+  rl.question('目标目录已存在，是否覆盖？', function(answer) {
+    rl.close()
+    if (/^y/i.test(answer)) {
+      resolve(config)
+      fs.removeSync(path.join(output, STATIC_ROOT))
+    } else {
+      process.exit(0)
+    }
+  })
+})

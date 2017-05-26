@@ -1,55 +1,57 @@
 var autoprefixer = require('autoprefixer')
 
-module.exports = [
+module.exports = function(config) {
+  return [
 
-  /* babel */
-  {
-    test: /\.js?$/,
-    exclude: [/node_modules/],
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ["es2015", "stage-0", "react"],
-        plugins: ['transform-runtime']
-      }
-    }
-  },
-
-  /* less */
-  {
-    test: /\.(css|less)$/,
-    use: [
-      'style-loader',
-      'css-loader',
-      'less-loader',
-      {
-        loader: 'postcss-loader',
+    /* babel */
+    {
+      test: /\.js?$/,
+      exclude: [/node_modules/],
+      use: {
+        loader: 'babel-loader',
         options: {
-          postcss: [
-            autoprefixer({
-              browsers: [
-                '>1%',
-                'last 4 versions',
-                'Firefox ESR',
-                'not ie < 9'
-              ]
-            })
-          ]
+          presets: ["es2015", "stage-0", "react"],
+          plugins: ['transform-runtime']
         }
       }
-    ]
-  },
+    },
 
-  /* json */
-  {
-    test: /\.json$/,
-    loader: 'json-loader'
-  },
+    /* less */
+    {
+      test: /\.(css|less)$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'less-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcss: [
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9'
+                ]
+              })
+            ]
+          }
+        }
+      ]
+    },
 
-  /* files */
-  {
-    test: /\.(eot|woff|woff2|ttf|svg|png|jpg)(\?v=[\d\.]+)?$/,
-    loader: 'file-loader?name=files/[hash].[ext]'
-  }
+    /* json */
+    {
+      test: /\.json$/,
+      loader: 'json-loader'
+    },
 
-]
+    /* files */
+    {
+      test: /\.(eot|woff|woff2|ttf|svg|png|jpg)(\?v=[\d\.]+)?$/,
+      loader: 'file-loader?name=' + config.static + '/files/[hash].[ext]'
+    }
+  ]
+
+}
