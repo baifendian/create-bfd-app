@@ -29,7 +29,7 @@ var rules = require('./include/rules')(settings)
 
 var config = {
   entry: {
-		app: './index.js'
+    app: './index.js'
   },
   output: {
     path: path.resolve('./'),
