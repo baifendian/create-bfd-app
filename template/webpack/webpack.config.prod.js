@@ -86,9 +86,25 @@ module.exports = new Promise(function(resolve) {
     output: process.stdout
   })
 
-  rl.question('目标目录已存在，是否覆盖？', function(answer) {
-    rl.close()
-    if (/^y/i.test(answer)) {
+  var attemps = 3
+
+  function confirm(msg, fn) {
+    if (!attemps) {
+      return rl.close()
+    }
+    rl.question(msg, function(answer) {
+      if (answer.trim().length) {
+        rl.close()
+        fn(/^y/i.test(answer))
+      } else {
+        attemps--
+        confirm(msg, fn)
+      }
+    })
+  }
+
+  confirm('目标目录已存在，是否覆盖？[y/n] ', function(ok) {
+    if (ok) {
       resolve(config)
       fs.removeSync(path.join(output, STATIC_ROOT))
     } else {
