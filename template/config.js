@@ -8,11 +8,7 @@ import auth from 'public/auth'
 import { browserHistory } from 'react-router'
 
 // AJAX 全局配置
-if (__DEV__) {
-  xhr.baseUrl = 'http://10.11.6.170:8080/api/'
-} else {
-  xhr.baseUrl = '/api/'
-}
+xhr.baseUrl = (typeof __HOST__ !== undefined) ? __HOST__ : '' + '/api/'
 
 xhr.success = (res, option) => {
   if (typeof res !== 'object') {
