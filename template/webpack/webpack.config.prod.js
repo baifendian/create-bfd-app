@@ -81,6 +81,11 @@ module.exports = new Promise(function(resolve) {
     return resolve(config)
   }
 
+  if (!fs.statSync(output).isDirectory()) {
+    console.error(` 该目录下已存在名为 '${ path.basename(output) }' 的文件!\n`)
+    process.exit(0)
+  }
+
   var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
